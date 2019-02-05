@@ -1,30 +1,39 @@
 ## OpencvDemo ##
 
-**LittleDrawBoard** Android端是基于**Socket**实现的android端和PC端同步绘画板；<br />
-[PC端源码地址](https://github.com/SmallStoneDD/LittleDrawBoard_PC)
-
-### 开发工具 ###
-- android端使用 [Android Studio](http://www.android-studio.org/)
-- pc端使用 [IntelliJ IDEA](http://www.jetbrains.com/idea/)
+**cmakedemo是cmake构建系统实现的一个基于opencv的测试demo**
+**ndkbuilddemo是ndk-build构建的jni项目demo**
 
 
 ### 主要功能 ###
 
 
-- 实现了opencv的环境的配置
-- android端画板绘制，PC端画板同步；
-- 画板的基础功能（形状，橡皮，redo,undo）
+- 实现图像的灰度化
+
 
 
 ### 预览 ###
 如无法预览点击空白处在新页面打开即可
-![](http://i4.buimg.com/1949/8020fd4ea461a012.gif)
+[dd](http://i4.buimg.com/1949/8020fd4ea461a012.gif)
 ### 使用步骤 ###
-step1：确保手机和电脑在同一个网络环境下；<br />
-step2：在PC端获取ipv4地址；<br />
-step3：首先开启PC端程序；<br />
-step4：打开android端程序填写step2中获取到的ip地址；<br />
-step5：点击链接，成功后开始同步绘制。
+step1:官网下载最近的[opencv4](https://sourceforge.net/projects/opencvlibrary/files/4.0.1/opencv-4.0.1-android-sdk.zip/download)
+<br />
 
+
+
+step2：修改cmakedemo/src/main/cpp/CMakeLists.txt中
+```
+    set(pathToOpenCv  /Users/henry/Downloads/OpenCV-android-sdk)
+```
+/Users/henry/Downloads/OpenCV-android-sdk替换成自己的官网下载的opencv4的根目录
+
+```
+set_target_properties(lib_opencv 
+              PROPERTIES  
+              IMPORTED_LOCATION   
+              /Users/henry/Downloads/LittleDrawBoard_AN-master/cmakedemo/src/main/jniLibs/arm64-v8a/${}/libopencv_java4.so
+              )
+```
+/Users/henry/Downloads/LittleDrawBoard_AN-master/cmakedemo/src/main/jniLibs/arm64-v8a/${}/libopencv_java4.so替换成本地libopencv_java4.so文件的地址
+                            
 ## 联系 ##
-617913246@qq.com
+2427417167@qq.com
