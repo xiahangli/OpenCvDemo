@@ -1,6 +1,6 @@
 ## OpencvDemo ##
 
-**cmakedemo是cmake构建系统实现的一个基于opencv的测试demo**
+**cmakedemo是根据cmake构建系统编写的一个基于opencv的测试demo**
 
 
 ### 主要功能 ###
