@@ -17,7 +17,7 @@ add_library(lib_opencv STATIC IMPORTED)
 
 set_target_properties(lib_opencv
         PROPERTIES
-        IMPORTED_LOCATION /Users/henry/Downloads/LittleDrawBoard_AN-master/cmakedemo/src/main/jniLibs/arm64-v8a/${}/libopencv_java4.so#这里替换成你自己的在项目中jniLibs中的so库绝对路径地址
+        IMPORTED_LOCATION /Users/henry/Desktop/OpenCvDemo/cmakedemo/src/main/jniLibs/${ANDROID_ABI}/libopencv_java4.so#这里替换成你自己的在项目中jniLibs中的so库绝对路径地址
         )
 
 #add_library表示添加一个库，native-lib是库名，cmake将其打包成libnative-lib.so文件
