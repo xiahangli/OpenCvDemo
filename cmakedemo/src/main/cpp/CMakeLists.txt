@@ -21,8 +21,9 @@ set_target_properties(lib_opencv
         )
 
 #add_library表示添加一个库，native-lib是库名，cmake将其打包成libnative-lib.so文件
-add_library(native-lib SHARED
-        native-lib.cpp)#将cpp文件编译成libnative-lib.so共享对象，第二个参数SHARED就是共享的意思
+add_library(native-lib
+        SHARED
+        native-lib.cpp 02gray.cpp)#将native-lib.cpp 02gray.cpp等多个cpp文件编译成libnative-lib.so共享对象，第二个参数SHARED就是共享的意思
 
 
 
