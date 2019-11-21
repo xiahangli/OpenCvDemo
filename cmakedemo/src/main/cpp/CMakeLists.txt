@@ -12,18 +12,18 @@ include_directories(${pathToOpenCv}/sdk/native/jni/include)#
 #include_directories(${pathToOpenCv}/sdk/native/jni/include)
 
 
-add_library(lib_opencv STATIC IMPORTED)
+add_library(opencv_png STATIC IMPORTED)
 #引入libopencv_java4.so文件
 
-set_target_properties(lib_opencv
+set_target_properties(opencv_png
         PROPERTIES
-        IMPORTED_LOCATION /Users/henry/Desktop/OpenCvDemo/cmakedemo/src/main/jniLibs/${ANDROID_ABI}/libopencv_java4.so#这里替换成你自己的在项目中jniLibs中的so库绝对路径地址
+        IMPORTED_LOCATION /Users/henry/Desktop/OpenCvDemo/cmakedemo/src/main/jniLibs/x86/libopencv_java4.so#这里替换成你自己的在项目中jniLibs中的so库绝对路径地址
         )
 
 #add_library表示添加一个库，native-lib是库名，cmake将其打包成libnative-lib.so文件
 add_library(native-lib
         SHARED
-        native-lib.cpp 02gray.cpp)#将native-lib.cpp 02gray.cpp等多个cpp文件编译成libnative-lib.so共享对象，第二个参数SHARED就是共享的意思
+        native-lib.cpp)#将native-lib.cpp 02gray.cpp等多个cpp文件编译成libnative-lib.so共享对象，第二个参数SHARED就是共享的意思
 
 
 
@@ -31,5 +31,5 @@ add_library(native-lib
 target_link_libraries( # Specifies the target library.
         native-lib#打包进apk的库
         ${log-lib}
-        lib_opencv#添加opencv库
+        opencv_png#添加opencv库
         )
