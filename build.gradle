@@ -1,28 +1,44 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+apply from: 'cfg.gradle'
+apply plugin: 'com.plugin.gradle'
 buildscript {
     repositories {
+        maven{
+            url uri('release')
+        }
         jcenter()
+        google()
         maven {
             url 'https://maven.google.com/'
             name 'Google'
+
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
-
+        //依赖上自己编写的插件，格式为 groupId:artifactId:version
+        classpath 'com.plugin.demo:plugin-test:1.0.0-SNAPSHOT'
+        classpath "com.android.tools.build:gradle:$localGradlePluginVersion"
+//        classpath 'com.xiahangliplugin.xiahangli:1.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
+ext{
+    versioncode = 123
+}
+
 allprojects {
     repositories {
+        maven{
+            url uri('XiahangliPlugin')
+        }
         jcenter()
         maven {
             url 'https://maven.google.com/'
             name 'Google'
         }
+        google()
     }
 }
 

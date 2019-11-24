@@ -1,1 +1,4 @@
+//include ':common'
+include ':plugin'
+//include ':testapp'
 include':cmakedemo'

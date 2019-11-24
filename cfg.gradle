@@ -1,0 +1,12 @@
+ext{
+    versioncode2 = 1
+    supportLibraryVersion = "28.0.0"
+    retrofitVersion = "2.1.0"
+    glideVersion = "3.7.0"
+    loggerVersion = "1.15"
+    eventbusVersion = "3.0.0"
+    gsonVersion = "2.8.0"
+    photoViewVersion = "2.0.0"
+    junitVersion = "4.12"
+    appCompatVersion = "1.0.0"
+}

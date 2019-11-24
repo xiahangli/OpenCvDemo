@@ -4,10 +4,8 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
-import android.media.Image;
 import android.opengl.GLSurfaceView;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -34,12 +32,12 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.opencv_activity_main);
         mImageView = findViewById(R.id.image_view);
         imageView1 = findViewById(R.id.image_view1);
         imageView2 = findViewById(R.id.image_view2);
         Bitmap bitmap = ((BitmapDrawable) getResources().getDrawable(
-                R.drawable.test)).getBitmap();
+                R.drawable.opencv_test)).getBitmap();
         int w = bitmap.getWidth(), h = bitmap.getHeight();
         int[] pix = new int[w * h];
         bitmap.getPixels(pix, 0, w, 0, 0, w, h);
@@ -56,7 +54,7 @@ public class MainActivity extends Activity {
 //            @Override
 //            public void run() {
 //                Bitmap bitmap = ((BitmapDrawable) getResources().getDrawable(
-//                        R.drawable.test)).getBitmap();
+//                        R.drawable.opencv_test)).getBitmap();
 //                int w = bitmap.getWidth(), h = bitmap.getHeight();
 //                int[] pix = new int[w * h];
 //                bitmap.getPixels(pix, 0, w, 0, 0, w, h);

@@ -89,7 +89,7 @@ Java_com_example_cmakedemo_MainActivity_getGray(JNIEnv *env, jobject instance, j
                 int b = imgData.at<Vec4b>(row, col)[0];
                 int g = imgData.at<Vec4b>(row, col)[1];
                 int r = imgData.at<Vec4b>(row, col)[2];
-                int alpha = imgData.at<Vec4b>(row, col)[3];
+//                int alpha = imgData.at<Vec4b>(row, col)[3];
                 /*dst.at<Vec3b>(row, col)[0] = b;
                 dst.at<Vec3b>(row, col)[1] = g;
                 dst.at<Vec3b>(row, col)[2] = 0;*/

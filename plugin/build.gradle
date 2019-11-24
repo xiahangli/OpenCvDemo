@@ -1,5 +1,5 @@
 apply plugin: 'groovy'
-apply plugin: 'maven'
+apply plugin: 'maven'//maven插件，用于打包文件
 
 ext{
     gradleBuildToolVersion = "1.5.0"
@@ -22,11 +22,15 @@ repositories {
 uploadArchives{
     repositories {
         mavenDeployer{
-            pom.groupId ='com.plugin.demo' //决定jar文件生成的目录
-            pom.artifactId = 'plugin-test'  //模块的名称
-            pom.version ='1.0.0'  //指定版本号
-//            pom.description =project.description ?:''
-//            pom.packaging ='jar'
+            pom.project{
+                name project.name //项目名称
+                groupId 'com.plugin.demo' //决定jar文件生成的目录
+                artifactId  'plugin-test'  //模块的名称
+                description '自定义测试的插件'//项目描述
+                packaging 'jar'//输出成jar
+                version  "1.0.0-SNAPSHOT"//版本号
+
+            }
             //文件发布到下面目录
             repository(url: uri('../release'))
             //发布到远程服务端
