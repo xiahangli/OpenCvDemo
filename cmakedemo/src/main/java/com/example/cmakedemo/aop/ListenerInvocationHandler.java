@@ -29,8 +29,8 @@ public class ListenerInvocationHandler implements InvocationHandler {
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         String name = method.getName();
         Method method1 = methodHashMap.get(name);
-        method1.invoke(target,args);//调用自己的方法
-        return null;
+//        不能直接return null,因为如果是onLongClickListener则需要返回一个boolean变量
+       return method1.invoke(target,args);//调用自己的方法
     }
 
     /**

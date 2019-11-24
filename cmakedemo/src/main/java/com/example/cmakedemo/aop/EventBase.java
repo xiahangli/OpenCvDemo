@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * @User Xiahangli
  * @Date 2019-11-24  17:30
  * @Email henryatxia@gmail.com
- * @Descrip
+ * @Descrip 注解的注解，用在OnClick和OnLongClick上
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.ANNOTATION_TYPE)//放在注解的上面,这里是放在onClick注解上面
@@ -22,13 +22,13 @@ public @interface EventBase {
 
     /**
      * setOnclickListener的方法名
-     * @return 字面量"setOnclickListener"
+     * @return 字面量如"setOnclickListener"，"setOnLongClickListener"
      */
-    String getSetOnClickListenerName();
+    String listenerSetter();
 
     /**
      * OnClickListener中的回调方法onClick(View view)
      * @return 字面量 "onClick(View view)"
      */
-    String getView$OnClickListenerCallbackName();
+    String callbackName();
 }

@@ -1,7 +1,6 @@
 package com.example.cmakedemo.aop;
 
 import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 
 import java.lang.annotation.Annotation;
@@ -88,32 +87,47 @@ public class InjectUtil {
                 Annotation[] annotations = methods[i].getAnnotations();//方法上的注解组,包含OnClick,等等
                 for (int j = 0; j < annotations.length; j++) {
                     Annotation annotation = annotations[j];//方法上的其中一个注解，如OnClick
-                    if (annotation!=null){
+                    if (annotation != null) {
                         Class<? extends Annotation> aClass = annotation.annotationType();//得到EventBase/Retention类
                         EventBase eventBase = aClass.getAnnotation(EventBase.class);
-                        if (eventBase!=null){
-                            String setOnClickListenerName = eventBase.getSetOnClickListenerName();
+                        if (eventBase != null) {
+                            String setOnClickListenerName = eventBase.listenerSetter();
                             Class<?> OnClickListenerClass = eventBase.listenerType();
-                            String view$OnClickListenerCallbackName = eventBase.getView$OnClickListenerCallbackName();
+                            String callbackName = eventBase.callbackName();
 
 
                             ListenerInvocationHandler handler = new ListenerInvocationHandler(activity);
                             Object OnClickListenerproxyInstance = Proxy.newProxyInstance(OnClickListenerClass.getClassLoader(),
                                     new Class<?>[]{OnClickListenerClass},
                                     handler);
-                            handler.addMtd(view$OnClickListenerCallbackName,methods[i]);
+                            handler.addMtd(callbackName, methods[i]);
                             /**另一种方式解析OnClick中的value值*/
                             OnClick onClikmethod = methods[i].getAnnotation(OnClick.class);
-                            int[] values = onClikmethod.value();//拿到OnClick的value方法的值
-                            for (int k = 0; k < values.length; k++) {
-                                Method findViewById = clazz.getMethod("findViewById",int.class);
-                                //activity(clazz).findViewById(view)
-                                View view =(View) findViewById.invoke(activity, values[k]);
-                                //view.setOnclicklistener
-                               Method setOnClickLister = view.getClass().getMethod(setOnClickListenerName,OnClickListenerClass);
-                                //view.setOnclicklistener(new OnClickListener())
-                                setOnClickLister.invoke(view,OnClickListenerproxyInstance);
-
+                            if (onClikmethod != null) {
+                                int[] values = onClikmethod.value();//拿到OnClick的value方法的值
+                                for (int k = 0; k < values.length; k++) {
+                                    Method findViewById = clazz.getMethod("findViewById", int.class);
+                                    //activity(clazz).findViewById(view)
+                                    View view = (View) findViewById.invoke(activity, values[k]);
+                                    //view.setOnclicklistener
+                                    Method setOnClickLister = view.getClass().getMethod(setOnClickListenerName, OnClickListenerClass);
+                                    //view.setOnclicklistener(new OnClickListener())
+                                    setOnClickLister.invoke(view, OnClickListenerproxyInstance);
+                                }
+                            }
+                            //长按
+                            OnLongClick onLongClick = methods[i].getAnnotation(OnLongClick.class);
+                            if (onLongClick != null) {
+                                int[] values = onLongClick.value();//拿到OnClick的value方法的值
+                                for (int k = 0; k < values.length; k++) {
+                                    Method findViewById = clazz.getMethod("findViewById", int.class);
+                                    //activity(clazz).findViewById(view)
+                                    View view = (View) findViewById.invoke(activity, values[k]);
+                                    //view.setOnclicklistener
+                                    Method setOnClickLister = view.getClass().getMethod(setOnClickListenerName, OnClickListenerClass);
+                                    //view.setOnclicklistener(new OnClickListener())
+                                    setOnClickLister.invoke(view, OnClickListenerproxyInstance);
+                                }
                             }
 
                             System.out.println();
@@ -132,7 +146,7 @@ public class InjectUtil {
 //                    Class<? extends Annotation> annotationType = annotation.annotationType();//返回OnClick类类型
 //                    if (annotationType != null) {
 //                        EventBase eventBase = annotationType.getAnnotation(EventBase.class);
-//                        String setOnClickListenerName = eventBase.getSetOnClickListenerName();
+//                        String setOnClickListenerName = eventBase.listenerSetter();
 //                        Method[] methods1 = annotationType.getMethods();
 //                        for (Method mtd :methods1) {
 ////                            mtd.invoke(annotation)
@@ -166,9 +180,9 @@ public class InjectUtil {
 //                    if(eventBase!=null){//因为我们在OnClick上面添加了EventBase，所以这里不为null
 //                        //得到注解上必要的信息
 //                        // 事件3大成员
-//                        String getSetOnClickListenerName = eventBase.getSetOnClickListenerName();  //setOnClickListener
+//                        String listenerSetter = eventBase.listenerSetter();  //setOnClickListener
 //
-//                        Log.e("--main--","getSetOnClickListenerName:"+getSetOnClickListenerName);
+//                        Log.e("--main--","listenerSetter:"+listenerSetter);
 //
 //                        Class<?> listenerType = eventBase.listenerType();    //View.OnClickListener.class
 //                        String getView$OnClickListenerCallback = eventBase.getView$OnClickListenerCallbackName();  //onClick
@@ -199,7 +213,7 @@ public class InjectUtil {
 //                                // 获得当前activity的view（赋值）
 //                                View view = activity.findViewById(viewId);
 //                                // 获取指定的方法
-//                                Method setter = view.getClass().getMethod(getSetOnClickListenerName, listenerType); //获取 setOnclickListener 里面的参数 View.Onclick
+//                                Method setter = view.getClass().getMethod(listenerSetter, listenerType); //获取 setOnclickListener 里面的参数 View.Onclick
 //                                // 执行方法
 //                                setter.invoke(view, listener); //执行setOnclickListener里面的回调 onclick方法
 //                            }

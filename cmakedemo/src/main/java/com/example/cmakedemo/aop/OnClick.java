@@ -18,7 +18,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)//一直保留到运行时，运行时也存在
 //下面的的EventBase是注解的注解，即放在注解上的
 //注意第三个参数必须是onClick,即setOnClickListener（new OnClickListener）中的OnClickListener的回调函数
-@EventBase(listenerType = View.OnClickListener.class, getSetOnClickListenerName = "setOnClickListener",getView$OnClickListenerCallbackName = "onClick")
+@EventBase(listenerType = View.OnClickListener.class, listenerSetter = "setOnClickListener", callbackName = "onClick")
 public @interface OnClick {
     int[] value();//使用val的名字，在使用注解的时候需要val={xxx1,xxx2,...}的方式
 }
