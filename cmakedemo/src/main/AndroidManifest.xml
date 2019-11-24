@@ -8,6 +8,7 @@
         android:label="@string/opencv_app_name"
         android:roundIcon="@mipmap/opencv_ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".OpenCvApplication"
         android:theme="@style/opencv_AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>

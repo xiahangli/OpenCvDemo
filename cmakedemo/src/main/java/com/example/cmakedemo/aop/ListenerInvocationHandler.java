@@ -30,17 +30,18 @@ public class ListenerInvocationHandler implements InvocationHandler {
         //method 等于拦截的onclick
         System.out.println("============target = "+target);
         System.out.println("=============method = "+method);
+        System.out.println("===============args = "+args.toString());
         if (target != null) {
-            // 获取需要拦截的方法名
-            String methodName = method.getName(); // 假如是onClick
-            System.out.println("===========methodName ="+methodName);
-            System.out.println("=========MethodMap = "+methodHashMap.toString());
-            // 重新赋值，将拦截的方法换为show
+            // 获取需要拦截的方法名onClick
+            String methodName = method.getName();
+            //调用
             method = methodHashMap.get(methodName); // 执行拦截的方法，show
             System.out.println("=========method "+method);
             if (method != null) {
                 System.out.println("=========return "+method.invoke(target, args));
-                return method.invoke(target, args);
+                Object invoke = method.invoke(target, args);//做自己的回调方法，
+                System.out.println("==============result = "+invoke);
+                return null;//可以返回null,不需要返回method.invoke的返回值
             }
         }
         return null;
@@ -48,12 +49,11 @@ public class ListenerInvocationHandler implements InvocationHandler {
 
     /**
      * 将需要拦截的方法添加
-     * @param methodName 需要拦截的方法，如：onClick()
+     * @param view$OnClickListenerCallbackName 需要拦截的方法，如：onClick()
      * @param method 执行拦截后的方法，如：show(),dddddddddd()等等，这个名字随意，这个方法可以通过反射的方式得到，
      *               为了保证只有标记有EventBase的方法才调用这个方法，需要在反射中判断反射得到的方法（clz.getMethods） 这个方法有
      */
-    public void addMethod(String methodName, Method method) {
-        methodHashMap.put(methodName, method);
-        System.out.println("==========addMethod ="+methodName+" method = "+method);
+    public void addMtd(String view$OnClickListenerCallbackName, Method method) {
+        methodHashMap.put(view$OnClickListenerCallbackName,method);
     }
 }
