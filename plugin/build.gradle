@@ -1,0 +1,38 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+ext{
+    gradleBuildToolVersion = "1.5.0"
+}
+
+def getGradleBuildToolVersion(){
+return ext.gradleBuildToolVersion
+}
+
+dependencies {
+    implementation gradleApi()//gradle sdk
+    implementation localGroovy() //groovy sdk
+    implementation "com.android.tools.build:gradle:$gradleBuildToolVersion"
+}
+
+repositories {
+    mavenLocal()
+}
+
+uploadArchives{
+    repositories {
+        mavenDeployer{
+            pom.groupId ='com.plugin.demo' //决定jar文件生成的目录
+            pom.artifactId = 'plugin-test'  //模块的名称
+            pom.version ='1.0.0'  //指定版本号
+//            pom.description =project.description ?:''
+//            pom.packaging ='jar'
+            //文件发布到下面目录
+            repository(url: uri('../release'))
+            //发布到远程服务端
+            // repository(url: "http://www.xxx.com/repos") {
+            // authentication(userName: "xxx", password: "xxx")
+            // }
+        }
+    }
+}
