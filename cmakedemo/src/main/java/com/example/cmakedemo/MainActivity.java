@@ -2,19 +2,24 @@ package com.example.cmakedemo;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
-import android.opengl.GLSurfaceView;
-
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.cmakedemo.aop.ContentView;
+import com.example.cmakedemo.aop.InjectUtil;
+import com.example.cmakedemo.aop.InjectView;
+import com.example.cmakedemo.aop.OnClick;
+
+//注解的方式设置contentView
+@ContentView(R.layout.opencv_activity_main)
 public class MainActivity extends Activity {
+
     static {
         System.loadLibrary("native-lib");
     }
-
-    private GLSurfaceView mGlsurfaceVIew;
 
     public native String getC();
 
@@ -23,57 +28,52 @@ public class MainActivity extends Activity {
 
     public native int[] roi(int buf[], int w, int h);
 
-    private ImageView mImageView;
-    private ImageView imageView1;
-    private ImageView imageView2;
+    @InjectView(R.id.image_view)
+    private ImageView imageView;
 
 
+    @OnClick({R.id.text_view, R.id.image_view}) // 有可能注解值是没有控件注入赋值的
+//    方法名可以随意定义
+    public void click(View view) {
+        System.out.println("=========="+
+                view.toString()        );
+        Toast.makeText(this, "textView", Toast.LENGTH_SHORT).show();
+        switch (view.getId()) {
+            case R.id.text_view:
+                System.out.println("========"+R.id.text_view);
+                System.out.println("========="+view.getId());
+//                startActivity(new Intent(this, RViewActivity.class));
+                break;
+
+            case R.id.image_view:
+                System.out.println("========"+R.id.image_view);
+                System.out.println("========="+view.getId());
+                Toast.makeText(this, "tv click", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.opencv_activity_main);
-        mImageView = findViewById(R.id.image_view);
-        imageView1 = findViewById(R.id.image_view1);
-        imageView2 = findViewById(R.id.image_view2);
+        InjectUtil.injectLayout(this);
+        InjectUtil.injectView(this);
+        InjectUtil.injectEvents(this);
         Bitmap bitmap = ((BitmapDrawable) getResources().getDrawable(
                 R.drawable.opencv_test)).getBitmap();
         int w = bitmap.getWidth(), h = bitmap.getHeight();
         int[] pix = new int[w * h];
         bitmap.getPixels(pix, 0, w, 0, 0, w, h);
-        int[] resultPixels = getGray(pix,w,h);
+        int[] resultPixels = getGray(pix, w, h);
         Bitmap result = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         result.setPixels(resultPixels, 0, w, 0, 0, w, h);
-        Matrix matrix = new Matrix();
-//        matrix.postScale()
+        imageView.setImageBitmap(result);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        mImageView.setImageBitmap(result);
-//
-//        imageView1.setImageBitmap(result);
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                Bitmap bitmap = ((BitmapDrawable) getResources().getDrawable(
-//                        R.drawable.opencv_test)).getBitmap();
-//                int w = bitmap.getWidth(), h = bitmap.getHeight();
-//                int[] pix = new int[w * h];
-//                bitmap.getPixels(pix, 0, w, 0, 0, w, h);
-//                int[] resultPixels = getGray(pix,w,h);
-//                Bitmap result = Bitmap.createBitmap(w,h, Bitmap.Config.RGB_565);
-//                result.setPixels(resultPixels, 0, w, 0, 0,w, h);
-//                mImageView.setImageBitmap(result);
-//            }
-//        },2000);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
+            }
+        });
     }
 
 
