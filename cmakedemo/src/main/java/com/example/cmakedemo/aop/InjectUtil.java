@@ -171,13 +171,13 @@ public class InjectUtil {
 //                        Log.e("--main--","getSetOnClickListenerName:"+getSetOnClickListenerName);
 //
 //                        Class<?> listenerType = eventBase.listenerType();    //View.OnClickListener.class
-//                        String getView$OnClickListenerCallback = eventBase.getView$OnClickListenerCallback();  //onClick
+//                        String getView$OnClickListenerCallback = eventBase.getView$OnClickListenerCallbackName();  //onClick
 //                        Log.e("--main--","getView$OnClickListenerCallback:"+getView$OnClickListenerCallback);
 //
 //                        // 获取注解的值，执行方法再去获得注解的值
 //                        try {
 //                            // 通过annotationType获取onClick注解的value值
-//                            Method valueMethod = annotationType.getDeclaredMethod("val");
+//                            Method valueMethod = annotationType.getDeclaredMethod("value");
 //                            // 执行value方法获得注解的值
 //                            int[] viewIds = (int[]) valueMethod.invoke(annotation);
 //
@@ -186,7 +186,7 @@ public class InjectUtil {
 //                            // 得到监听的代理对象（新建代理单例、类的加载器，指定要代理的对象类的类型、class实例）
 //                            ListenerInvocationHandler handler = new ListenerInvocationHandler(activity);
 //                            // 添加到拦截列表里面
-//                            handler.addMethod(getView$OnClickListenerCallback, method);
+//                            handler.addMtd(getView$OnClickListenerCallback, method);
 //                            // 监听对象的代理对象
 //                            // ClassLoader loader:指定当前目标对象使用类加载器,获取加载器的方法是固定的
 //                            // Class<?>[] interfaces:目标对象实现的接口的类型,使用泛型方式确认类型

@@ -27,23 +27,9 @@ public class ListenerInvocationHandler implements InvocationHandler {
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        //method 等于拦截的onclick
-        System.out.println("============target = "+target);
-        System.out.println("=============method = "+method);
-        System.out.println("===============args = "+args.toString());
-        if (target != null) {
-            // 获取需要拦截的方法名onClick
-            String methodName = method.getName();
-            //调用
-            method = methodHashMap.get(methodName); // 执行拦截的方法，show
-            System.out.println("=========method "+method);
-            if (method != null) {
-                System.out.println("=========return "+method.invoke(target, args));
-                Object invoke = method.invoke(target, args);//做自己的回调方法，
-                System.out.println("==============result = "+invoke);
-                return null;//可以返回null,不需要返回method.invoke的返回值
-            }
-        }
+        String name = method.getName();
+        Method method1 = methodHashMap.get(name);
+        method1.invoke(target,args);//调用自己的方法
         return null;
     }
 

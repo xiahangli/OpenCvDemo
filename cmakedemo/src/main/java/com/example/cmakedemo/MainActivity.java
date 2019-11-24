@@ -5,6 +5,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -30,10 +31,25 @@ public class MainActivity extends BaseActivity {
     public native int[] roi(int buf[], int w, int h);
 
     @InjectView(R.id.image_view)
-    private ImageView imageView;
+    private ImageButton imageView;
 
     @InjectView(R.id.button)
     private Button button;
+
+
+//    @OnLongClick({R.id.btn, R.id.tv})
+//    public boolean longClick(View btn) {
+//        switch (btn.getId()) {
+//            case R.id.btn:
+//                Toast.makeText(this, "btn longClick", Toast.LENGTH_SHORT).show();
+//                break;
+//
+//            case R.id.tv:
+//                Toast.makeText(this, "tv longClick", Toast.LENGTH_SHORT).show();
+//                break;
+//        }
+//        return true;
+//    }
 
 
     @OnClick(value = {R.id.button, R.id.image_view}) // 有可能注解值是没有控件注入赋值的
@@ -52,7 +68,7 @@ public class MainActivity extends BaseActivity {
             case R.id.image_view:
                 System.out.println("========"+R.id.image_view);
                 System.out.println("========="+view.getId());
-//                Toast.makeText(this, "tv click", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "image", Toast.LENGTH_SHORT).show();
                 break;
         }
         return false;
@@ -62,7 +78,18 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         InjectUtil.injectLayout(this);
+
         InjectUtil.injectView(this);
+        //todo 如果这条语句放在InjectUtil.injectEvents(this)之后，则不会通过反射回调，因为反射的监听器被这条语句覆盖了，
+        // 同理，下面这条语句放在反射 InjectUtil.injectEvents(this);之前，则这条语句不起作用，因为被injectEvents覆盖
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println(
+                        "dasfasdf"
+                );
+            }
+        });
         InjectUtil.injectEvents(this);
         Bitmap bitmap = ((BitmapDrawable) getResources().getDrawable(
                 R.drawable.opencv_test)).getBitmap();
@@ -73,12 +100,8 @@ public class MainActivity extends BaseActivity {
         Bitmap result = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         result.setPixels(resultPixels, 0, w, 0, 0, w, h);
         imageView.setImageBitmap(result);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
+
     }
 
 
