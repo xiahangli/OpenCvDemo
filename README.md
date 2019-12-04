@@ -27,6 +27,9 @@ set_target_properties(lib_opencv
               )
 ```
 /Users/henry/Downloads/LittleDrawBoard_AN-master/cmakedemo/src/main/jniLibs/arm64-v8a/${}/libopencv_java4.so替换成本地libopencv_java4.so文件的地址
+
+########
+如在使用过程中有配置上的疑问，欢迎提交issue,如果本文对你有些许帮助，帮忙点歌赞呗~
                             
 ## 联系 ##
 2427417167@qq.com
