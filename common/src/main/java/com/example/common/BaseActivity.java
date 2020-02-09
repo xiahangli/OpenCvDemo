@@ -1,6 +1,7 @@
 package com.example.common;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
+
 
 /**
  * @User Xiahangli
@@ -8,5 +9,5 @@ import androidx.appcompat.app.AppCompatActivity;
  * @Email henryatxia@gmail.com
  * @Descrip
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends Activity {
 }
