@@ -111,6 +111,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
     testImplementation "junit:junit:$rootProject.junitVersion"
-//    api project(':common') //<==>
+    api project(':common') //<==>
 //    api project(path: ':common')
 }
