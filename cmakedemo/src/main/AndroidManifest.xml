@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:name=".OpenCvApplication"
         android:theme="@style/opencv_AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SampleListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
