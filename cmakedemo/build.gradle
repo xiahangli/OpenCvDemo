@@ -4,6 +4,7 @@ apply plugin: 'com.android.application'
 //apply plugin:'com.plugin.gradle'
 apply plugin:'kotlin-android'
 apply plugin :'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
 
@@ -121,5 +122,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'//<==>
     //依赖c层的库，当运行的时候会自动将cppso中build生成的libcppso.so打包到apk中
     implementation project(':cppso')
+    //kotlin中添加kapt注解处理工具
+    kapt 'com.android.databinding:compiler:3.0.1'
 //    api project(path: ':common')
 }
