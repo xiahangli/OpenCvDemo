@@ -78,7 +78,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         InjectUtil.injectLayout(this);
-
+        outputString("ste");
         InjectUtil.injectView(this);
         //todo 如果这条语句放在InjectUtil.injectEvents(this)之后，则不会通过反射回调，因为反射的监听器被这条语句覆盖了，
         // 同理，下面这条语句放在反射 InjectUtil.injectEvents(this);之前，则这条语句不起作用，因为被injectEvents覆盖
@@ -104,5 +104,7 @@ public class MainActivity extends BaseActivity {
 
     }
 
+
+    public native void outputString(String str);
 
 }

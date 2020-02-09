@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <opencv2/opencv.hpp>
 #include <android/log.h>
+#include <lib_log/LogUtil.h>
 
 using namespace cv;
 using namespace std;
@@ -178,3 +179,13 @@ Java_com_example_cmakedemo_MainActivity_roi(JNIEnv *env, jobject obj1, jintArray
     return result;
 }
 
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_example_cmakedemo_MainActivity_outputString(JNIEnv *env, jobject thiz, jstring str) {
+    //getStringUtfChars返回字符数组
+   const char *msg = env->GetStringUTFChars(str,0);
+   LogUtil logUtil;//定义类
+   //调用函数
+   logUtil.test(msg);
+
+}

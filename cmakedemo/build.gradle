@@ -27,6 +27,8 @@ android {
 
                 // Sets optional flags for the C compiler.
                 cFlags "-D_EXAMPLE_C_FLAG1", "-D_EXAMPLE_C_FLAG2"
+                //下面这种方式为使用标准c++11语法
+//                cFlags "-std=c++11"
 
                 // Sets a flag to enable format macro constants for the C++ compiler.
                 cppFlags "-D__STDC_FORMAT_MACROS"
