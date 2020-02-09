@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.plugin.demo</groupId>
+  <artifactId>plugin-test</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20200209.004557</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20200209004557</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0.0-20200209.004557-1</value>
+        <updated>20200209004557</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0.0-20200209.004557-1</value>
+        <updated>20200209004557</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
