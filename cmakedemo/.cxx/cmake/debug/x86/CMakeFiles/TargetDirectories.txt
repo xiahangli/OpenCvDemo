@@ -1,4 +1,0 @@
-/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cmakedemo/.cxx/cmake/debug/x86/CMakeFiles/edit_cache.dir
-/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cmakedemo/.cxx/cmake/debug/x86/CMakeFiles/rebuild_cache.dir
-/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cmakedemo/.cxx/cmake/debug/x86/CMakeFiles/c-lib.dir
-/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cmakedemo/.cxx/cmake/debug/x86/CMakeFiles/native-lib.dir

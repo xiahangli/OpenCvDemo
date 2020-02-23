@@ -1,2 +1,0 @@
-[1/2] Building C object CMakeFiles/avilib.dir/avilib/platform_posix.c.o
-[2/2] Linking C shared library /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/build/intermediates/cmake/debug/obj/armeabi-v7a/libavilib.so
