@@ -31,6 +31,8 @@ add_library(
         player
         SHARED
         ${CMAKE_SOURCE_DIR}/aviplayer/player.cpp
+#        ${CMAKE_SOURCE_DIR}/aviplayer/AviPlayer.cpp
+        ${CMAKE_SOURCE_DIR}/commom/commonutil.cpp
 )
 
 #avi基础库
@@ -48,7 +50,7 @@ include_directories(${CMAKE_SOURCE_DIR}/commom/)
 add_library(
         common
         SHARED
-        ${CMAKE_SOURCE_DIR}/commom/commonutils.cpp
+        ${CMAKE_SOURCE_DIR}/commom/commonutil.cpp
 )
 
 
@@ -74,12 +76,16 @@ target_link_libraries( # Specifies the target library.
         # included in the NDK.
         ${log-lib} )
 
+#// ！！！！注意！！！！
 #链接生成player的so库,需要将avilib链接到player中，不然报未定义
 #指向avilib中的函数的引用，即undefined reference to AVI_video_height(avi_t*)
 target_link_libraries(
         player
+        #link
         common
         avilib
+        GLESv1_CM
+        jnigraphics
         ${log-lib}
 )
 

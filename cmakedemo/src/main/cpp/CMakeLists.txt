@@ -48,6 +48,7 @@ add_library(
 #最后将opencv静态库链接进native-lib中
 target_link_libraries( # Specifies the target library.
         native-lib#打包进apk的库
-#        ${log-lib}
+        #native-lib依赖android系统自带的log库
+        ${log-lib}
         opencv_png#添加opencv库
         )

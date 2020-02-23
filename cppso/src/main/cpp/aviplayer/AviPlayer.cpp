@@ -67,6 +67,7 @@ Java_com_glumes_cppso_aviplayer_AviPlayer_render(JNIEnv *env, jclass jcls, jlong
     long frameSize = 0;
     int keyFrame = 0;
 
+    //需要在cmakelists.txt添加jnigraphics.
     if (AndroidBitmap_lockPixels(env, bitmap, (void **) &frameBuffer) < 0) {
         throwByName(env, IOException, "Unable to lock pixels.");
         return JNI_FALSE;
@@ -112,6 +113,8 @@ JNIEXPORT void JNICALL
 Java_com_glumes_cppso_aviplayer_AviPlayer_initSurface(JNIEnv *env, jclass clazz, jlong inst,
                                                       jlong avi) {
     Instance *instance = (Instance *) inst;
+
+    //cmakelists.txt中添加
     glEnable(GL_TEXTURE_2D);
 
     glGenTextures(1, &instance->texture);
@@ -126,8 +129,8 @@ Java_com_glumes_cppso_aviplayer_AviPlayer_initSurface(JNIEnv *env, jclass clazz,
 
     glColor4f(1.0, 1.0, 1.0, 1.0);
 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, frameWidth, frameHeight, 0, GL_RGB,
-                 GL_UNSIGNED_SHORT_5_6_5, 0);
+//    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, frameWidth, frameHeight, 0, GL_RGB,
+//                 GL_UNSIGNED_SHORT_5_6_5, 0);
 
 }
 
@@ -141,11 +144,11 @@ Java_com_glumes_cppso_aviplayer_AviPlayer_glRender(JNIEnv *env, jclass, jlong in
         return JNI_FALSE;
     }
     isFrameRead = JNI_TRUE;
-    glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0,
-                    AVI_video_width((avi_t *) avi),
-                    AVI_video_height((avi_t *) avi),
-                    GL_RGB,
-                    GL_UNSIGNED_SHORT_5_6_5, instance->buffer);
-
+//    glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0,
+//                    AVI_video_width((avi_t *) avi),
+//                    AVI_video_height((avi_t *) avi),
+//                    GL_RGB,
+//                    GL_UNSIGNED_SHORT_5_6_5, instance->buffer);
+    return isFrameRead;
 //    glDrawTexiOES()
 }
