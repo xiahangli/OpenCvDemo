@@ -8,6 +8,13 @@
 
 class commonutils {
 
+
+public:
+    //包名+类名
+    static const char *IOException = "java/io/IOException";
+    static const char *RuntimeException = "java/lang/RuntimeException";
+
+    void throwmsgbyname(JNIEnv *env, const char name, const char *msg);
 };
 
 

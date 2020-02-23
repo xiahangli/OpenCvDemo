@@ -32,7 +32,7 @@ add_library(
         SHARED
         ${CMAKE_SOURCE_DIR}/aviplayer/player.cpp
 #        ${CMAKE_SOURCE_DIR}/aviplayer/AviPlayer.cpp
-        ${CMAKE_SOURCE_DIR}/commom/commonutil.cpp
+        ${CMAKE_SOURCE_DIR}/commom/commonutils.cpp
 )
 
 #avi基础库
@@ -50,7 +50,7 @@ include_directories(${CMAKE_SOURCE_DIR}/commom/)
 add_library(
         common
         SHARED
-        ${CMAKE_SOURCE_DIR}/commom/commonutil.cpp
+        ${CMAKE_SOURCE_DIR}/commom/commonutils.cpp
 )
 
 

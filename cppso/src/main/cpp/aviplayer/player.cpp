@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <GLES2/gl2.h>
 #include <avilib.h>
+#include <commonutils.h>
 
 struct Instance {
     char *buffer;
@@ -48,5 +49,9 @@ JNIEXPORT jlong Java_com_example_cppso_aviplayer_AviPlayer_init(JNIEnv *env,jcla
     //4.new必须要delete，否则内存泄漏
     //new 返回的是对象的首地址，指针接收
     Instance* instance = new Instance();
+
+    //1.先找到帧的size
+
+    AVI_frame_size(avi,)
     return (jlong)instance;
 }
