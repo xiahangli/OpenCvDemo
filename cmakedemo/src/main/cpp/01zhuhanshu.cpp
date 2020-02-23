@@ -1,34 +1,34 @@
-#include<opencv2/opencv.hpp>
-//#include<iostream>
-//#include<math.h>
-#include<02gray.h>
-using namespace std;
-using namespace cv;
-
-
-int main(int argc, char** argv)
-{
-	Mat src1, dst1, gray_src1;
-	src1 = imread("D:/meinv001.jpg");
-	if (src1.empty()) {
-		cout << "could not load image..." << endl;
-		return -1;
-	}
-	namedWindow("input", CV_WINDOW_AUTOSIZE);
-	imshow("input", src1);
-
-	long st = getTickCount();//»ñÈ¡Ê±¼ä´Á
-							 //¶ÔÍ¼Æ¬½øÐÐ´¦Àí
-	gray_src1 = grayImage(src1);//, Mat &dst
-
-	namedWindow("output", CV_WINDOW_AUTOSIZE);
-	imshow("output", gray_src1);
-	//¼ÆËãÏÔÊ¾Ê±¼ä
-	long tt = getTickCount() - st;
-	float time = (tt / getTickFrequency()) * 1000;
-	printf("execution time(ms) : %.2f\n", time);
-
-	//µÈ´ý
-	waitKey(0);
-	return 0;
-}
+//#include<opencv2/opencv.hpp>
+////#include<iostream>
+////#include<math.h>
+//#include<02gray.h>
+//using namespace std;
+//using namespace cv;
+//
+//
+//int main(int argc, char** argv)
+//{
+//	Mat src1, dst1, gray_src1;
+//	src1 = imread("D:/meinv001.jpg");
+//	if (src1.empty()) {
+//		cout << "could not load image..." << endl;
+//		return -1;
+//	}
+//	namedWindow("input", CV_WINDOW_AUTOSIZE);
+//	imshow("input", src1);
+//
+//	long st = getTickCount();//ï¿½ï¿½È¡Ê±ï¿½ï¿½ï¿½
+//							 //ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½
+//	gray_src1 = grayImage(src1);//, Mat &dst
+//
+//	namedWindow("output", CV_WINDOW_AUTOSIZE);
+//	imshow("output", gray_src1);
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Ê±ï¿½ï¿½
+//	long tt = getTickCount() - st;
+//	float time = (tt / getTickFrequency()) * 1000;
+//	printf("execution time(ms) : %.2f\n", time);
+//
+//	//ï¿½È´ï¿½
+//	waitKey(0);
+//	return 0;
+//}

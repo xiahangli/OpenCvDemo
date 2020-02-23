@@ -7,6 +7,7 @@
     <Button
         android:id="@+id/button"
         android:textSize="28sp"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
@@ -20,6 +21,17 @@
         android:scaleType="matrix"
         android:src="@drawable/opencv_test" />
 
+    <EditText
+        android:id="@+id/opencv_edittext"
+        android:layout_width="wrap_content"
+        android:hint="dadfd"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <com.example.cmakedemo.ui.MyView
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
 

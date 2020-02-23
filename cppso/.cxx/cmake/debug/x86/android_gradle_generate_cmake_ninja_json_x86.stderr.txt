@@ -1,0 +1,2 @@
+/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/src/main/cpp
+HELL

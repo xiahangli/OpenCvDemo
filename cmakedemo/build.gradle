@@ -5,15 +5,23 @@ apply plugin: 'com.android.application'
 apply plugin:'kotlin-android'
 apply plugin :'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
+    //这里也要写enable=true，每一个
+dataBinding{
+    enabled = true
+}
 
+//    multiDex{
+////        enabled = true
+////    }
 
     defaultConfig {
         applicationId "com.example.cmakedemo"
-        minSdkVersion 19
-        targetSdkVersion 28
+        minSdkVersion 17
+        targetSdkVersion 29
         versionCode rootProject.versioncode
         versionName "1.0"
 
@@ -39,7 +47,9 @@ android {
         }
         ndk{
 //            abiFilters  'arm64-v8a'//只允许arm64-v8a的安装
+            moduleName "ndkdemo"
             abiFilters  'x86'//只允许arm64-v8a的安装
+            ldLibs("log")
         }
     }
 
@@ -92,6 +102,11 @@ android {
         }
     }
 
+
+    compileOptions{
+        targetCompatibility =1.8
+        sourceCompatibility =1.8
+    }
 }
 
 //task clean(type: Delete) {
@@ -121,8 +136,16 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'//<==>
     //依赖c层的库，当运行的时候会自动将cppso中build生成的libcppso.so打包到apk中
-    implementation project(':cppso')
+    api project(':cppso')
     //kotlin中添加kapt注解处理工具
     kapt 'com.android.databinding:compiler:3.0.1'
-//    api project(path: ':common')
+    //日志输出工具
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    //内存泄漏工具
+    implementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    implementation 'androidx.cardview:cardview:1.0.0-rc02'
+
 }

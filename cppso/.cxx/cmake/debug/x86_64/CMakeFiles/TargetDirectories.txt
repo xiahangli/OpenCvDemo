@@ -1,0 +1,7 @@
+/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64/CMakeFiles/rebuild_cache.dir
+/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64/CMakeFiles/common.dir
+/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64/CMakeFiles/avilib.dir
+/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64/CMakeFiles/edit_cache.dir
+/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64/CMakeFiles/player.dir
+/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64/CMakeFiles/native-operation.dir
+/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64/CMakeFiles/cppso.dir

@@ -1,0 +1,40 @@
+{
+  "buildFiles": [
+    "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/arm64-v8a --target clean"
+  ],
+  "libraries": {
+    "cppso-Debug-arm64-v8a": {
+      "artifactName": "cppso",
+      "buildCommand": "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/arm64-v8a --target cppso",
+      "abi": "arm64-v8a",
+      "output": "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/build/intermediates/cmake/debug/obj/arm64-v8a/libcppso.so"
+    },
+    "common-Debug-arm64-v8a": {
+      "artifactName": "common",
+      "buildCommand": "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/arm64-v8a --target common",
+      "abi": "arm64-v8a",
+      "output": "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/build/intermediates/cmake/debug/obj/arm64-v8a/libcommon.so"
+    },
+    "avilib-Debug-arm64-v8a": {
+      "artifactName": "avilib",
+      "buildCommand": "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/arm64-v8a --target avilib",
+      "abi": "arm64-v8a",
+      "output": "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/build/intermediates/cmake/debug/obj/arm64-v8a/libavilib.so"
+    },
+    "player-Debug-arm64-v8a": {
+      "artifactName": "player",
+      "buildCommand": "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/arm64-v8a --target player",
+      "abi": "arm64-v8a",
+      "output": "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/build/intermediates/cmake/debug/obj/arm64-v8a/libplayer.so"
+    },
+    "native-operation-Debug-arm64-v8a": {
+      "artifactName": "native-operation",
+      "buildCommand": "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/arm64-v8a --target native-operation",
+      "abi": "arm64-v8a",
+      "output": "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-operation.so"
+    }
+  }
+}

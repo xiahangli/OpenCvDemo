@@ -14,9 +14,7 @@ public class OpenCvApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Class<?> clz = CommonApplication.class;
-        Object[] enums = clz.getEnumConstants();
-        ((CommonApplication)enums[1]).onCreate(this);
+
 
     }
 }

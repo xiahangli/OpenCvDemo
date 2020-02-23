@@ -15,6 +15,8 @@ Java_com_glumes_androidcppsolib_MainActivity_outputString(JNIEnv *env, jobject i
     env->ReleaseStringUTFChars(msg_, msg);
 }
 
+
+
 extern "C"
 JNIEXPORT jstring JNICALL
 Java_com_example_cmakedemo_MainActivity_stringFromJNI(

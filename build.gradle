@@ -24,7 +24,7 @@ buildscript {
         classpath 'com.plugin.demo:plugin-test:1.0.0-SNAPSHOT'
         //kotlin构建工具，为了扩展性，在buildscript脚本的闭包中定义kotlin_version变量
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "com.android.tools.build:gradle:$localGradlePluginVersion"
+        classpath "com.android.tools.build:gradle:3.5.0"
 //        classpath 'com.xiahangliplugin.xiahangli:1.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

@@ -1,0 +1,40 @@
+{
+  "buildFiles": [
+    "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64 --target clean"
+  ],
+  "libraries": {
+    "native-operation-Debug-x86_64": {
+      "artifactName": "native-operation",
+      "buildCommand": "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64 --target native-operation",
+      "abi": "x86_64",
+      "output": "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/build/intermediates/cmake/debug/obj/x86_64/libnative-operation.so"
+    },
+    "common-Debug-x86_64": {
+      "artifactName": "common",
+      "buildCommand": "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64 --target common",
+      "abi": "x86_64",
+      "output": "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/build/intermediates/cmake/debug/obj/x86_64/libcommon.so"
+    },
+    "avilib-Debug-x86_64": {
+      "artifactName": "avilib",
+      "buildCommand": "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64 --target avilib",
+      "abi": "x86_64",
+      "output": "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/build/intermediates/cmake/debug/obj/x86_64/libavilib.so"
+    },
+    "cppso-Debug-x86_64": {
+      "artifactName": "cppso",
+      "buildCommand": "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64 --target cppso",
+      "abi": "x86_64",
+      "output": "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/build/intermediates/cmake/debug/obj/x86_64/libcppso.so"
+    },
+    "player-Debug-x86_64": {
+      "artifactName": "player",
+      "buildCommand": "/Users/henry/Library/Android/sdk/cmake/3.6.4111459/bin/cmake --build /Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/.cxx/cmake/debug/x86_64 --target player",
+      "abi": "x86_64",
+      "output": "/Users/henry/Desktop/study/androidstyProject/OpenCvDemo/cppso/build/intermediates/cmake/debug/obj/x86_64/libplayer.so"
+    }
+  }
+}

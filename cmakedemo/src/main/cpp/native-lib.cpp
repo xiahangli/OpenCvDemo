@@ -144,7 +144,9 @@ JNIEXPORT jintArray JNICALL
 Java_com_example_cmakedemo_MainActivity_roi(JNIEnv *env, jobject obj1, jintArray buf_, jint w,
                                             jint h) {
 
+
     jint *cbuf;
+    //将java层传过来的jintArray转成jint指针，可以认为是数组
     cbuf = env->GetIntArrayElements(buf_, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
@@ -175,6 +177,7 @@ Java_com_example_cmakedemo_MainActivity_roi(JNIEnv *env, jobject obj1, jintArray
 
     jintArray result = env->NewIntArray(size);
     env->SetIntArrayRegion(result, 0, size, ptr);//将ptr指向的srcImage对象像素数值赋值给result
+    //释放jni层数组
     env->ReleaseIntArrayElements(buf_, cbuf, 0);
     return result;
 }
