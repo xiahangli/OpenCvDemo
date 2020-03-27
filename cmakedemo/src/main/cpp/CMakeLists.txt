@@ -25,7 +25,7 @@ add_library(native-lib
         SHARED
         native-lib.cpp)#将native-lib.cpp 02gray.cpp等多个cpp文件编译成libnative-lib.so共享对象，第二个参数SHARED就是共享的意思
 
-
+include_directories(src/main/cpp/include/)
 
 #最后将opencv静态库链接进native-lib中
 target_link_libraries( # Specifies the target library.
