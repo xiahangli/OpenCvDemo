@@ -4,18 +4,18 @@ cmake_minimum_required(VERSION 3.4.1)
 #支持-std=gnu++11
 set(CMAKE_VERBOSE_MAKEFILE on)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
-
+message("测试"})
 #设置opencv的sdk目录，/Users/henry/Downloads/OpenCV-android-sdk替换成个人在opencv官网下载到本地的sdk路径
 set(pathToOpenCv /Users/henry/Downloads/OpenCV-android-sdk)#set指令自定义变量
-#配置加载native依赖（头文件）
-include_directories(${pathToOpenCv}/sdk/native/jni/include)#
-#include_directories(${pathToOpenCv}/sdk/native/jni/include)
+        #配置加载native依赖（头文件）
+        include_directories(${pathToOpenCv}/sdk/native/jni/include)#
+        #include_directories(${pathToOpenCv}/sdk/native/jni/include)
 
 
-add_library(opencv_png STATIC IMPORTED)
-#引入libopencv_java4.so文件
+        add_library(opencv_png STATIC IMPORTED)
+        #引入libopencv_java4.so文件
 
-set_target_properties(opencv_png
+        set_target_properties(opencv_png
         PROPERTIES
         IMPORTED_LOCATION /Users/henry/Desktop/OpenCvDemo/cmakedemo/src/main/jniLibs/x86/libopencv_java4.so#这里替换成你自己的在项目中jniLibs中的so库绝对路径地址
         )

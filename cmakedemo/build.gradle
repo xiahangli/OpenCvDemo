@@ -122,7 +122,7 @@ buildscript {
 //        }
     }
     dependencies {
-        //格式为 groupId:artifactId:version
+        //格式为 grsoupId:artifactId:version
 //        classpath 'com.plugin.demo:plugin-opencv_test:1.0.0'
     }
 }
