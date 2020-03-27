@@ -1,5 +1,6 @@
 apply plugin: 'groovy'
 apply plugin: 'maven'//maven插件，用于打包文件
+apply plugin: 'war'
 
 ext{
     gradleBuildToolVersion = "1.5.0"
@@ -29,7 +30,6 @@ uploadArchives{
                 description '自定义测试的插件'//项目描述
                 packaging 'jar'//输出成jar
                 version  "1.0.0-SNAPSHOT"//版本号
-
             }
             //文件发布到下面目录
             repository(url: uri('../release'))

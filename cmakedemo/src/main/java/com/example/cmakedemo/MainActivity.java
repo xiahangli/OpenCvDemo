@@ -13,7 +13,7 @@ import com.example.cmakedemo.aop.ContentView;
 import com.example.cmakedemo.aop.InjectUtil;
 import com.example.cmakedemo.aop.InjectView;
 import com.example.cmakedemo.aop.OnClick;
-import com.example.common.BaseActivity;
+import com.example.cmakedemo.base.BaseActivity;
 
 //注解的方式设置contentView
 @ContentView(R.layout.opencv_activity_main)
@@ -22,6 +22,8 @@ public class MainActivity extends BaseActivity {
     static {
         System.loadLibrary("native-lib");
     }
+
+    private int a;
 
     public native String getC();
 
@@ -55,19 +57,20 @@ public class MainActivity extends BaseActivity {
     @OnClick(value = {R.id.button, R.id.image_view}) // 有可能注解值是没有控件注入赋值的
 //    方法名可以随意定义
     public boolean click(View view) {
-        System.out.println("=========="+ view.toString());
+        System.out.println("==========" + view.toString());
 //        Toast.makeText(this, "textView", Toast.LENGTH_SHORT).show();
         switch (view.getId()) {
             case R.id.button:
-                System.out.println("========"+R.id.button);
-                System.out.println("========="+view.getId());
+                System.out.println("========" + R.id.button);
+                System.out.println("=========" + view.getId());
                 Toast.makeText(this, "tv click", Toast.LENGTH_SHORT).show();
+                a++;
 //                startActivity(new Intent(this, RViewActivity.class));
                 break;
 
             case R.id.image_view:
-                System.out.println("========"+R.id.image_view);
-                System.out.println("========="+view.getId());
+                System.out.println("========" + R.id.image_view);
+                System.out.println("=========" + view.getId());
                 Toast.makeText(this, "image", Toast.LENGTH_SHORT).show();
                 break;
         }
@@ -77,11 +80,44 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        InjectUtil.injectLayout(this);
-
-        InjectUtil.injectView(this);
+        setContentView(R.layout.opencv_activity_main);
+//        InjectUtil.injectLayout(this);
+        outputString("ste");
+//        InjectUtil.injectView(this);
         //todo 如果这条语句放在InjectUtil.injectEvents(this)之后，则不会通过反射回调，因为反射的监听器被这条语句覆盖了，
         // 同理，下面这条语句放在反射 InjectUtil.injectEvents(this);之前，则这条语句不起作用，因为被injectEvents覆盖
+        imageView = findViewById(R.id.image_view);
+        View Btm = findViewById(R.id.button);
+        Btm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+//                    a=a/0;
+                    System.out.println();
+                    a++;
+                    if (a == 2) {
+                        System.out.println();
+                    }
+                    throw new IllegalArgumentException();
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                while (true) {
+//                    try {
+//                        Thread.sleep(1000);
+//                        System.out.println("=======");
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        }).start();
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,7 +126,7 @@ public class MainActivity extends BaseActivity {
                 );
             }
         });
-        InjectUtil.injectEvents(this);
+//        InjectUtil.injectEvents(this);
         Bitmap bitmap = ((BitmapDrawable) getResources().getDrawable(
                 R.drawable.opencv_test)).getBitmap();
         int w = bitmap.getWidth(), h = bitmap.getHeight();
@@ -105,5 +141,6 @@ public class MainActivity extends BaseActivity {
     }
 
 
+    public native void outputString(String str);
 
 }

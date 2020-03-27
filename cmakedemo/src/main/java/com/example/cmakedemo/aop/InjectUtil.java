@@ -33,7 +33,11 @@ public class InjectUtil {
                 method.invoke(activity, layoutId);
                 // 另一种写法：
                 // activity.setContentView(layoutId);
-            } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
         }
@@ -53,6 +57,7 @@ public class InjectUtil {
 //            field.getAnnotation(InjectView.class)
 
             InjectView annotation = field.getAnnotation(InjectView.class);//拿到注解
+            if (annotation == null)continue;
             int viewId = annotation.value();//得到注解的值
             try {
                 //方法一：通过反射的方式找到findViewById方法
@@ -62,7 +67,11 @@ public class InjectUtil {
 //                    View viewById = activity.findViewById(viewId);
                 field.setAccessible(true);
                 field.set(activity, view);//给字段赋值,这时候View字段就被赋值成findViewById的View对象了
-            } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
                 e.printStackTrace();
             }
         }

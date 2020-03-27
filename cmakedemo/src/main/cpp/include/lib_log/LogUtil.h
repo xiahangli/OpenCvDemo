@@ -13,8 +13,11 @@ using namespace std;
 class LogUtil {
 
 public:
+
+    //构造函数
     LogUtil();
 
+    //test方法
     void test(string msg);
 };
 

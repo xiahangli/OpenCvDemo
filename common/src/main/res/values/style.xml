@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseContainer" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!--更改 toolbar 右侧三个点的颜色为白色-->
+        <item name="android:textColorSecondary">@android:color/white</item>
+    </style>
+
+<!--    toolbar工具条的主题-->
+    <style name="ToolbarOverlay" parent="@style/ThemeOverlay.AppCompat.Light">
+        <item name="android:textColor">@android:color/holo_blue_dark</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>

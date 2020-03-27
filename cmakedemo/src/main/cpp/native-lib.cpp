@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <opencv2/opencv.hpp>
 #include <android/log.h>
+#include <lib_log/LogUtil.h>
 
 using namespace cv;
 using namespace std;
@@ -31,38 +32,11 @@ Java_com_example_cmakedemo_MainActivity_getC(JNIEnv *env, jobject thiz) {
             "Hello from JNI !  Compiled with ABI "  ".");//注意这里是c++中的写法,c中的写法需要带*,见jni.h中的定义
 }
 
-extern "C"
-JNIEXPORT jintArray JNICALL Java_com_example_cmakedemo_MainActivity_gray(
-        JNIEnv *env, jclass obj, jintArray buf, int w, int h) {
 
-    jint *cbuf;
-    cbuf = (env)->GetIntArrayElements(buf, JNI_FALSE);
-    if (cbuf == NULL) {
-        return 0;
-    }
-
-    Mat imgData(h, w, CV_8UC4, (unsigned char *) cbuf);
-
-    uchar *ptr = imgData.ptr(0);
-    for (int i = 0; i < w * h; i++) {
-        //计算公式：Y(亮度) = 0.299*R + 0.587*G + 0.114*B
-        //对于一个int四字节，其彩色值存储方式为：BGRA
-        int grayScale = (int) (ptr[4 * i + 2] * 0.299 + ptr[4 * i + 1] * 0.587 +
-                               ptr[4 * i + 0] * 0.114);
-        ptr[4 * i + 1] = grayScale;
-        ptr[4 * i + 2] = grayScale;
-        ptr[4 * i + 0] = grayScale;
-    }
-
-    int size = w * h;
-    jintArray result = (env)->NewIntArray(size);
-    (env)->SetIntArrayRegion(result, 0, size, cbuf);
-    (env)->ReleaseIntArrayElements(buf, cbuf, 0);
-    return result;
-}
 
 extern "C"
 JNIEXPORT jintArray JNICALL
+//灰度化一张图片,int数组对应于
 Java_com_example_cmakedemo_MainActivity_getGray(JNIEnv *env, jobject instance, jintArray buf_,
                                                 jint w, jint h) {
     jint *buf = env->GetIntArrayElements(buf_, NULL);
@@ -143,7 +117,9 @@ JNIEXPORT jintArray JNICALL
 Java_com_example_cmakedemo_MainActivity_roi(JNIEnv *env, jobject obj1, jintArray buf_, jint w,
                                             jint h) {
 
+
     jint *cbuf;
+    //将java层传过来的jintArray转成jint指针，可以认为是数组
     cbuf = env->GetIntArrayElements(buf_, JNI_FALSE);
     if (cbuf == NULL) {
         return 0;
@@ -174,7 +150,18 @@ Java_com_example_cmakedemo_MainActivity_roi(JNIEnv *env, jobject obj1, jintArray
 
     jintArray result = env->NewIntArray(size);
     env->SetIntArrayRegion(result, 0, size, ptr);//将ptr指向的srcImage对象像素数值赋值给result
+    //释放jni层数组
     env->ReleaseIntArrayElements(buf_, cbuf, 0);
     return result;
 }
 
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_example_cmakedemo_MainActivity_outputString(JNIEnv *env, jobject thiz, jstring str) {
+    //getStringUtfChars返回字符数组
+   const char *msg = env->GetStringUTFChars(str,0);
+   LogUtil logUtil;//定义类
+   //调用函数
+   logUtil.test(msg);
+
+}
