@@ -3,11 +3,14 @@ package com.example.cmakedemo;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.example.cmakedemo.aop.ContentView;
 import com.example.cmakedemo.aop.InjectUtil;
@@ -53,6 +56,11 @@ public class MainActivity extends BaseActivity {
 //        return true;
 //    }
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+    }
 
     @OnClick(value = {R.id.button, R.id.image_view}) // 有可能注解值是没有控件注入赋值的
 //    方法名可以随意定义
@@ -142,5 +150,7 @@ public class MainActivity extends BaseActivity {
 
 
     public native void outputString(String str);
+
+    public native void printStr();
 
 }

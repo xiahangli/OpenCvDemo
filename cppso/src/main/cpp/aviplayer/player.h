@@ -37,3 +37,4 @@ Java_com_example_cppso_aviplayer_AviPlayer_getFrameRate(JNIEnv *,jclass,jlong );
 
 
 #endif //OPENCVDEMO_PLAYER_H
+extern "C"

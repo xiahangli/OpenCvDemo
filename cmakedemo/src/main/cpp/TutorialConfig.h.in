@@ -1,0 +1,6 @@
+//
+// Created by xiahangli on 2020-03-28.
+//
+
+#define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@
+#define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@

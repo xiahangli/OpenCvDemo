@@ -13,4 +13,12 @@
 #define LOGE(format, ...)  __android_log_print(ANDROID_LOG_ERROR, TAG, format, ##__VA_ARGS__)
 #define LOGD(format, ...)  __android_log_print(ANDROID_LOG_DEBUG, TAG, format, ##__VA_ARGS__)
 
+static void printStr() {
 
+}
+
+//extern "C"
+JNIEXPORT void JNICALL
+Java_com_example_cmakedemo_MainActivity_printStr(JNIEnv *env, jobject jo) {
+//    LOGD("%s","dsfa");
+}

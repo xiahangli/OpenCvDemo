@@ -32,5 +32,5 @@ JNIEXPORT void JNICALL
 Java_com_example_cmakedemo_nativefactory_NativeEngine_pringlog(JNIEnv *env, jclass type) {
 
     // TODO
-    LOGD("print log");
+//    LOGD("print log");
 }

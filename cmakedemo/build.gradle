@@ -47,9 +47,9 @@ dataBinding{
         }
         ndk{
 //            abiFilters  'arm64-v8a'//只允许arm64-v8a的安装
-            moduleName "ndkdemo"
+            moduleName "Tutorial"
             abiFilters  'x86'//只编译x86的安装
-            ldLibs("log")
+            ldLibs("log")//加载log库
         }
     }
 

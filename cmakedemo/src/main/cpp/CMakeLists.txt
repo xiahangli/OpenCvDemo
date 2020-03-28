@@ -1,10 +1,14 @@
 cmake_minimum_required(VERSION 3.4.1)
 
+project(Tutorial VERSION 1.0)
 
 #支持-std=gnu++11
 set(CMAKE_VERBOSE_MAKEFILE on)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 message("测试"})
+
+configure_file(TutorialConfig.h.in TutorialConfig.h)
+
 #设置opencv的sdk目录，/Users/henry/Downloads/OpenCV-android-sdk替换成个人在opencv官网下载到本地的sdk路径
 set(pathToOpenCv /Users/henry/Downloads/OpenCV-android-sdk)#set指令自定义变量
         #配置加载native依赖（头文件）
@@ -53,3 +57,7 @@ target_link_libraries( # Specifies the target library.
         ${log-lib}
         opencv_png#添加opencv库
         )
+#add_executable(Tutorial TutorialConfig.cpp)
+#target_include_directories(Tutorial PUBLIC
+#        "${PROJECT_BINARY_DIR}"
+#        )

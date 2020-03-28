@@ -1,0 +1,8 @@
+//
+// Created by xiahangli on 2020-03-28.
+//
+
+#ifndef OPENCVDEMO_TUTORIALCONFIG_H
+#define OPENCVDEMO_TUTORIALCONFIG_H
+
+#endif //OPENCVDEMO_TUTORIALCONFIG_H
